@@ -1,0 +1,25 @@
+
+# Core dependencies
+torch>=1.10.0
+torchvision>=0.11.0
+numpy
+pillow
+tqdm
+scipy
+matplotlib
+opencv-python
+lpips
+
+# StyleGAN3 dependencies
+click
+imageio
+imageio-ffmpeg
+tensorboard
+tqdm
+requests
+
+# Inversion tools
+git+https://github.com/openai/CLIP.git  # For inversion models like HyperStyle
+
+# Additional tools
+pyspng  # Optimized PNG loading (used in StyleGAN3)
