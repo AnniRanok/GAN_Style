@@ -68,16 +68,16 @@ python scripts/invert.py \
 
 #  Results & Observations
 
-🔹 Training on limited clothing data resulted in good generation quality, but more data would improve diversity.
-🔹 The inversion process successfully reconstructs clothing, but further fine-tuning is needed for best accuracy.
-🔹 Compared to a StyleGAN3 model trained on faces, the clothing model has a lower level of detail but still achieves realistic results.
+-  Training on limited clothing data resulted in good generation quality, but more data would improve diversity.
+-  The inversion process successfully reconstructs clothing, but further fine-tuning is needed for best accuracy.
+-  Compared to a StyleGAN3 model trained on faces, the clothing model has a lower level of detail but still achieves realistic results.
 
 #  Future Improvements
 
-🔹 Increase dataset size – More training images for better diversity.
-🔹 Train separate models for clothing & shoes – Avoid classification errors.
-🔹 Improve inversion accuracy – Use PTI fine-tuning for better latent space mapping.
-🔹 Implement virtual try-on system – Integrate generated clothing into a virtual wardrobe.
+-  Increase dataset size – More training images for better diversity.
+-  Train separate models for clothing & shoes – Avoid classification errors.
+-  Improve inversion accuracy – Use PTI fine-tuning for better latent space mapping.
+-  Implement virtual try-on system – Integrate generated clothing into a virtual wardrobe.
 
 #  References
 
@@ -86,6 +86,6 @@ Official NVIDIA Implementation
 HyperStyle for Inversion
 PTI for High-Quality Inversion
 
-# 👨‍💻 Author
+# Author
 Konar Inna – Machine Learning Engineer & Data Scientist
-📧 konar.inna@gmail.com
+ konar.inna@gmail.com
