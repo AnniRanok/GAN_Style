@@ -11,7 +11,7 @@ get_ipython().system('ls /kaggle/input/processed-gan/processed_GAN')
 # 
 # We did not separate shoes and clothing, although it would have been more correct to train two models. However, our model does not make mistakes and does not confuse shoes with clothing. Of course, this affected the accuracy of generation.
 
-# # Some additional installations and downloads
+#  Some additional installations and downloads
 
 # In[1]:
 
@@ -31,7 +31,7 @@ import numpy as np
 import random
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(f"✅ CUDA available: {device}")
+print(f" CUDA available: {device}")
 
 seed = 42
 torch.manual_seed(seed)
@@ -155,7 +155,7 @@ from torchvision import transforms
 from tqdm import tqdm
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(f"✅ CUDA available: {device}")
+print(f" CUDA available: {device}")
 
 
 # In[5]:
@@ -232,7 +232,7 @@ network_pkl = "/kaggle/input/model432/network-snapshot-000432.pkl"
 with open(network_pkl, "rb") as f:
     G = pickle.load(f)["G_ema"].cuda()  
 
-print("✅ Model loaded successfully!")
+print(" Model loaded successfully!")
 
 
 # # Image generated from Gaussian noise
@@ -415,16 +415,16 @@ print(f"LPIPS Similarity Score: {distance.item():.4f}")
 # # 2️⃣ Synthesis Network:
 # #    - The core part of the model responsible for image generation.
 # #    - Major improvements over StyleGAN2:
-# #      ✅ Uses continuous signal representation instead of discrete pixel-based features.
-# #      ✅ Eliminates aliasing artifacts through filtered convolutions instead of traditional upsampling.
-# #      ✅ Generates more stable images where objects do not shift or distort when interpolating in the latent space.
+# #        Uses continuous signal representation instead of discrete pixel-based features.
+# #        Eliminates aliasing artifacts through filtered convolutions instead of traditional upsampling.
+# #        Generates more stable images where objects do not shift or distort when interpolating in the latent space.
 # 
 # # ==============================================================
 # # Key Improvements in StyleGAN3
 # # ==============================================================
-# # ✅ Alias-Free Generation → No "grid-based" artifacts, resulting in smoother, more natural images.
-# # ✅ Consistent Object Structures → Objects remain stable when interpolating between latent vectors.
-# # ✅ More Precise Editing → Latent space edits have a more predictable effect on the image.
+# #   Alias-Free Generation → No "grid-based" artifacts, resulting in smoother, more natural images.
+# #   Consistent Object Structures → Objects remain stable when interpolating between latent vectors.
+# #   More Precise Editing → Latent space edits have a more predictable effect on the image.
 # 
 # # ==============================================================
 # # Comparison: StyleGAN2 vs. StyleGAN3
@@ -434,7 +434,7 @@ print(f"LPIPS Similarity Score: {distance.item():.4f}")
 # # |----------------------|--------------------------------|--------------------------------|
 # # | Latent Space        | 𝑤 (512)                        | 𝑤 (512)                        |
 # # | Upsampling         | Traditional Convolutions + AdaIN | Filtered Convolutions          |
-# # | Alias-Free Generation | ❌ No                          | ✅ Yes                          |
+# # | Alias-Free Generation |  No                          |  Yes                          |
 # # | Stability of Objects | Objects "float"               | Objects remain stable          |
 # # | Training Time      | Faster                          | Slower due to complex operations |
 # # | Image Quality     | High but with artifacts        | Higher with smooth transitions |
@@ -442,12 +442,12 @@ print(f"LPIPS Similarity Score: {distance.item():.4f}")
 # # ==============================================================
 # # Architecture of StyleGAN3 (Visual Representation)
 # # ==============================================================
-# # 📌 Figure: Comparison of Traditional GANs, StyleGAN2, and StyleGAN3 (Source: NVIDIA)
+# #  Figure: Comparison of Traditional GANs, StyleGAN2, and StyleGAN3 (Source: NVIDIA)
 # 
 # # ==============================================================
 # # Conclusion
 # # ==============================================================
-# # 💡 StyleGAN3 is a major leap in generative modeling, removing aliasing distortions 
+# #  StyleGAN3 is a major leap in generative modeling, removing aliasing distortions 
 # # and creating more natural, stable images.
 # 
 # # For further details, refer to the official NVIDIA paper on StyleGAN3.
