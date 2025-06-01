@@ -19,7 +19,7 @@ The goal is to enable **high-quality clothing synthesis** while allowing inversi
 
 # Project Pipeline 
 
-### Dataset Collection & Processing**  
+### Dataset Collection & Processing  
 - **Collected 1,648 flattened clothing images** from various sources.  
 - Preprocessed images into **TFRecord format** for efficient training.  
 
