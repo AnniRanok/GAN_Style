@@ -17,13 +17,13 @@ The goal is to enable **high-quality clothing synthesis** while allowing inversi
 
 ---
 
-# **Project Pipeline**  
+# Project Pipeline 
 
-### ** Dataset Collection & Processing**  
+### Dataset Collection & Processing**  
 - **Collected 1,648 flattened clothing images** from various sources.  
 - Preprocessed images into **TFRecord format** for efficient training.  
 
-### ** Model Training**  
+### Model Training  
 - Initially attempted training on **Kaggle**, but was limited by resources.  
 - Final training took place on **AWS** using:  
   - **4 GPUs**  
@@ -31,19 +31,19 @@ The goal is to enable **high-quality clothing synthesis** while allowing inversi
   - **Training steps: 500k images (kimg=500)**  
   - **Best model: network-snapshot-000432.pkl (FID = 31)**  
 
-### ** Image Generation**  
+### Image Generation  
 - Generated **10+ clothing images** using trained weights.  
 - Compared results with a **StyleGAN3 model trained on FFHQ (faces dataset)** to demonstrate achievable accuracy.  
 
-### ** Inversion & Editing**  
+###  Inversion & Editing  
 - Implemented **latent space inversion** to reconstruct clothing from real-world images.  
 - Used **HyperStyle & PTI (Pivotal Tuning Inversion)** for improved inversion accuracy.  
 
 ---
 
-##  **How to Run the Project**  
+##  How to Run the Project  
 
-### ** Clone the Repository**  
+###  Clone the Repository  
 ```bash
 git clone https://github.com/your-repo/stylegan3-clothing.git
 cd stylegan3-clothing
