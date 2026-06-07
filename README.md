@@ -1,105 +1,70 @@
-# StyleGAN3 Clothing Generation & Inversion
-
+# StyleGAN3: High-Resolution Generative Modeling & Latent Space Inversion
 ## Overview
 
-This project explores high-resolution image generation and latent space inversion using StyleGAN3 applied to a custom dataset of clothing images.
+This project explores high-resolution generative modeling and latent space inversion using StyleGAN3 trained on a custom dataset.
+The focus is on end-to-end ML pipeline development, large-scale model training, and evaluation of representation learning under limited-data conditions.
 
-The system generates realistic flattened clothing representations and investigates inversion techniques to map real-world clothing images back into the latent space.
+The project emphasizes training stability, data pipeline design, and GPU-based deep learning experimentation.
 
-This is a deep learning research prototype focused on generative modeling and image inversion techniques.
-
-
-## Objectives
-
-The main goals of this project are:
-
-- Train a generative model for clothing image synthesis
-- Evaluate StyleGAN3 performance on a domain-specific dataset
-- Explore latent space inversion from real-world images
-- Compare domain-specific training with pre-trained face models (FFHQ baseline)
+## Key Objectives
+Train a high-resolution generative model using StyleGAN3 from scratch
+Build a scalable data preprocessing and training pipeline
+Evaluate generative performance under small dataset constraints
+Implement latent space inversion for reconstructing real images
+Analyze limitations of GAN training in low-data regimes
 
 ## Dataset
-
-- 1,648 flattened clothing images collected from public sources  
-- Preprocessed into TFRecord format for training efficiency  
-- Domain-specific dataset focused on clothing textures and shapes  
-
+1,648 domain-specific images (clothing dataset)
+Preprocessed into TFRecord format for efficient training
+Focus on structured visual data with limited sample diversity
 
 ## Model Architecture
+NVIDIA StyleGAN3 (unconditional GAN)
+Resolution: 1024×1024
+Training from scratch on custom dataset
+Training Infrastructure
+AWS multi-GPU environment (4 GPUs)
+Batch size: 16
+Total training scale: ~500k images (kimg = 500)
+Checkpoint: network-snapshot-000432.pkl
 
-- StyleGAN3 (NVIDIA implementation)
-- Trained from scratch on custom clothing dataset
-- Resolution: 1024×1024
+## Evaluation
+Fréchet Inception Distance (FID): ~31
+Observed trade-off between diversity and texture sharpness due to dataset scale
+Stable convergence achieved under constrained data regime
+Latent Space Inversion
 
+## Implemented inversion techniques:
 
-## Training Setup
+HyperStyle
+PTI (Pivotal Tuning Inversion)
 
-- Infrastructure: AWS multi-GPU environment  
-- 4 GPUs used for training  
-- Batch size: 16  
-- Training length: ~500k images (kimg=500)  
-- Best checkpoint: `network-snapshot-000432.pkl`  
-- Evaluation metric: FID ≈ 31  
-
-
-## Inversion Methods
-
-The project implements latent space inversion using:
-
-- HyperStyle  
-- PTI (Pivotal Tuning Inversion)
-
-These methods are used to map real-world clothing images into the learned latent space for reconstruction and editing.
-
+These methods enable mapping real images into the GAN latent space for reconstruction analysis.
 
 ## Pipeline
+Data collection and preprocessing
+TFRecord conversion for optimized training
+StyleGAN3 training pipeline
+Image synthesis
+Latent space inversion
+Model evaluation
 
-1. Data collection and preprocessing  
-2. TFRecord conversion  
-3. StyleGAN3 training  
-4. Image synthesis  
-5. Latent space inversion  
-6. Evaluation and comparison  
-
-
-## Results
-
-- The model generates realistic clothing textures at high resolution  
-- Domain-specific training improves structural consistency  
-- Inversion works reliably but is sensitive to image quality  
-- Compared to FFHQ-trained models, clothing domain shows higher variance and lower texture sharpness  
-
+## Key Learnings 
+Challenges of training deep generative models on small datasets
+Sensitivity of GANs to data distribution and diversity
+Trade-offs between fidelity and generalization
+Practical constraints of multi-GPU training pipelines
+Importance of preprocessing and data representation quality
 
 ## Limitations
-
-- Dataset size is relatively small for generative modeling  
-- Limited diversity in clothing categories  
-- Inversion quality depends heavily on input image quality  
-- No conditional generation (class-controlled synthesis not implemented)  
-
-
-## Future Work
-
-- Scale dataset to improve diversity and generalization  
-- Introduce conditional StyleGAN (labels for clothing types)  
-- Improve inversion accuracy with additional fine-tuning  
-- Extend to virtual try-on applications  
-- Combine with detection models for end-to-end pipeline  
-
+Limited dataset size affects generalization performance
+No conditional generation (no label-driven control)
+Inversion quality depends on input image quality
+Domain is not optimized for downstream predictive tasks
 
 ## Tech Stack
-
-- Python  
-- PyTorch  
-- NVIDIA StyleGAN3  
-- AWS GPU infrastructure  
-- HyperStyle (inversion)  
-- PTI (Pivotal Tuning Inversion)  
-
-
-## Status
-
-This project is a deep learning research prototype focused on generative modeling and inversion techniques in a fashion domain.
+Python • PyTorch • NVIDIA StyleGAN3 • AWS (EC2 GPU) • TFRecord
+HyperStyle • PTI
 
 ## Inference
 
