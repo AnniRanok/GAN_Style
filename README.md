@@ -81,12 +81,32 @@ HyperStyle • PTI
 ## Inference
 
 ### Image Generation
-```bash
+
 python stylegan3/gen_images.py \
   --network=weights/stylegan3_model.pt \
   --outdir=generated \
   --seeds=1-10 \
   --trunc=1.0
+
+### Image Inversion
+
+python scripts/invert.py \
+    --input_image input/clothing_photo.jpg \
+    --checkpoint_path weights/stylegan3_model.pt \
+    --output_path results/
+
+## Notes
+
+- Model performance depends on dataset size and diversity  
+- Inversion quality varies depending on input image complexity  
+
+## Author
+
+Konar Inna  
+Machine Learning Engineer & Data Scientist  
+
+
+
 
 ### Image Inversion
 
